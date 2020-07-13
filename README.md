@@ -2,6 +2,12 @@
 
 Convert MongoEngine object to Python dict easily.
 
+## Installation
+
+```
+pip3 install mongoengine-todict
+```
+
 ## Usage
 
 Basic usage
