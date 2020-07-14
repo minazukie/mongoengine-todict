@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from mongoengine_todict.errors import FieldAlReadyExistsError
 from mongoengine import (
     BooleanField,
     EmailField,
@@ -7,8 +6,11 @@ from mongoengine import (
     EmbeddedDocumentListField,
     FloatField,
     IntField,
+    ReferenceField,
     StringField,
 )
+
+from mongoengine_todict.errors import FieldAlReadyExistsError
 
 _handlers = {
     StringField: lambda data: str(data),
@@ -18,6 +20,7 @@ _handlers = {
     BooleanField: lambda data: bool(data),
     EmbeddedDocumentField: lambda data: data.to_dict(),
     EmbeddedDocumentListField: lambda data: [d.to_dict() for d in data],
+    ReferenceField: lambda data: data.to_dict(),
     # TODO: and more...
 }
 
