@@ -20,7 +20,7 @@ _handlers = {
     BooleanField: lambda data: bool(data),
     EmbeddedDocumentField: lambda data: data.to_dict(),
     EmbeddedDocumentListField: lambda data: [d.to_dict() for d in data],
-    ReferenceField: lambda data: data.to_dict(),
+    ReferenceField: lambda data: str(data.id),
     # TODO: and more...
 }
 
